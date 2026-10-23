@@ -76,6 +76,23 @@ li { margin: 4px 0; }
 .note { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--brand); border-radius: 10px; padding: 14px 16px; margin: 20px 0; }
 .note p { margin: 0; }
 
+table.glance { width: 100%; border-collapse: collapse; font-size: 15px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+table.glance th, table.glance td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+table.glance th { font-size: 13px; color: var(--muted); font-weight: 600; }
+table.glance tr:last-child td { border-bottom: 0; }
+
+/* On narrow screens each row becomes a small card with labels. */
+@media (max-width: 640px) {
+  table.glance, table.glance tbody, table.glance tr, table.glance td { display: block; width: 100%; }
+  table.glance thead { display: none; }
+  table.glance { border: 0; background: none; }
+  table.glance tr { background: var(--card); border: 1px solid var(--line); border-radius: 12px; margin-bottom: 10px; padding: 6px 0; }
+  table.glance td { border: 0; padding: 4px 14px; }
+  table.glance td::before { content: attr(data-label); display: block; font-size: 12px; font-weight: 600; color: var(--muted); }
+  table.glance td:first-child { font-weight: 600; }
+  table.glance td:first-child::before { content: none; }
+}
+
 footer.site { border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
 footer.site .wrap { padding-top: 20px; padding-bottom: 32px; }
 footer.site p { margin: 4px 0; }
